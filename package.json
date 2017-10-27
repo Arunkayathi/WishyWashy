@@ -1,0 +1,20 @@
+{
+  "name": "Wishy-Washy",
+  "version": "1.0.0",
+  "description": "This application is used when one is unable to decide among a set of choices.It will randomly select one of the options.",
+  "main": "app.js",
+  "author": "Arun Kayathi",
+  "license": "MIT",
+  "scripts": {
+    "serve": "live-server public/ --port=8000",
+    "build": "webpack",
+    "build-babel": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch"
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "live-server": "^1.2.0",
+    "webpack": "^3.8.1"
+  }
+}
