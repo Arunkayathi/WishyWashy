@@ -1,5 +1,6 @@
 import React from 'react';
 import  ReactDOM  from 'react-dom';
+import { Option } from './Option';
 export const Options=({options,onRemoveOptions,handleRemoveOption})=>{
     return(
         <div>
