@@ -1,20 +1,17 @@
-
-
-
 .header{
-background-color: #502373;
-margin-bottom:4rem;
-padding:1.6rem 0;
+background-color: $off-purple;
+margin-bottom:$xl-size;
+padding:$m-size 0;
 color:white;
 }
 
 .header__title{
-    font-size:3.2rem;
+    font-size:$l-size;
     margin: 0;
 }
 .header__subtitle{
-    color:#D1B2EE;
-    font-size:2rem;
+    color:$off-white;
+    font-size:$m-size;
     font-weight:500;
     margin:0;
 }

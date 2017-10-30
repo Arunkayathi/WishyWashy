@@ -4,4 +4,13 @@ html{
 
 body{
     font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+    background-color: #3B3A35;
+    font-size: $s-size;
+}
+button{
+    cursor: pointer;
+
+}
+button:disabled{
+    cursor: default;
 }

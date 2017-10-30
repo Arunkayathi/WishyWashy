@@ -67,13 +67,17 @@ export default class WishyWashy extends Component{
           return (
               <div>
                   <Header/>
-                  <Action hasOptions={this.state.options.length>0} onMakeDecision={()=>this.onMakeDecision()}/>
-                  <Options  onRemoveOptions={this.onRemoveOptions} 
-                  options={this.state.options}
-                  handleRemoveOption={(option)=>this.handleRemoveOption(option)}/>
-                  <AddOption handleOption={this.handleOption}/>
-                  <OptionModal selectedOption={this.state.selectedOption}
-                  handleSelectedOption={this.handleClearSelectedOption}/>
+                  <div className="container">
+                    <Action hasOptions={this.state.options.length>0} onMakeDecision={()=>this.onMakeDecision()}/>
+                    <div className="widget">
+                        <Options  onRemoveOptions={this.onRemoveOptions} 
+                        options={this.state.options}
+                        handleRemoveOption={(option)=>this.handleRemoveOption(option)}/>
+                        <AddOption handleOption={this.handleOption}/>
+                    </div>
+                    <OptionModal selectedOption={this.state.selectedOption}
+                    handleSelectedOption={this.handleClearSelectedOption}/>
+                  </div>
               </div>
           )
       }
