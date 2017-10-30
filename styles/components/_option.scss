@@ -1,0 +1,13 @@
+.option{
+    background: #262d3b;
+    display: flex;
+    justify-content: space-between;
+    padding:$s-size $m-size;
+    border-bottom: 1px solid lighten($off-white,10%);
+}
+.option__message{
+    font-size: 2.6rem;
+    color:white;
+    font-weight: 500;
+    word-break: break-all;
+}

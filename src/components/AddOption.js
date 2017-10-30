@@ -10,7 +10,7 @@ export default class AddOption extends Component{
         e.preventDefault();                                                      
         const option=e.target.elements.option.value;
         console.log(option);
-        const error=this.props.handleOption(option)
+        const error=this.props.handleOption(option.trim())
             this.setState(()=>({error}))           
             if(!error){
                 e.target.elements.option.value='';
