@@ -23,12 +23,13 @@ export default class WishyWashy extends Component{
         }))
      };
      handleOption=(option)=>{
-         if(option.trim().length===0){
+         let capitalizeOption=option.charAt(0).toUpperCase()+option.slice(1).toLowerCase();
+         if(capitalizeOption.trim().length===0){
              return "Enter a text"
-         }else if(this.state.options.indexOf(option)>-1){
+         }else if(this.state.options.indexOf(capitalizeOption)>-1){
              return "Option already exists"
          }
-         this.setState((prevState)=>({options:prevState.options.concat(option)}));
+         this.setState((prevState)=>({options:prevState.options.concat(capitalizeOption)}));
      
      };
      handleClearSelectedOption=()=>{

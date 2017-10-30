@@ -10,7 +10,7 @@ export const Options=({options,onRemoveOptions,handleRemoveOption})=>(
             </div>
             {options.length===0&& <p className="widget__message">Please add an option to get started</p>}
             {options.map((option,index)=>{
-                return <Option key={option} optionText={option}
+                return <Option key={option} count={index+1} optionText={option}
                 handleRemoveOption={handleRemoveOption}/>
             })}
         </div>
