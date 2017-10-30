@@ -6,16 +6,43 @@ import { Option } from './Option';
 import { Action } from './Action';
 import { Header } from './Header';
 import { Options } from './Options';
+import OptionModal from './OptionModal';
 export default class WishyWashy extends Component{
     
-    constructor(props){
-        super(props);
-        this.state={
-            options:props.options
-        }
-        this.onRemoveOptions=this.onRemoveOptions.bind(this);
-        this.handleOption=this.handleOption.bind(this);
+    state={
+        options:[],
+        selectedOption:undefined
     }
+    onRemoveOptions=()=>{
+        this.setState(()=>({options:[]}))
+     };
+     onMakeDecision(){
+         const index=Math.floor(Math.random()*this.state.options.length);
+        this.setState(()=>({
+            selectedOption:this.state.options[index]
+        }))
+     };
+     handleOption=(option)=>{
+         if(option.trim().length===0){
+             return "Enter a text"
+         }else if(this.state.options.indexOf(option)>-1){
+             return "Option already exists"
+         }
+         this.setState((prevState)=>({options:prevState.options.concat(option)}));
+     
+     };
+     handleClearSelectedOption=()=>{
+        this.setState(()=>({
+            selectedOption:undefined
+        }))
+     };
+     handleRemoveOption(optionToRemove){
+             this.setState((prevState)=>({
+                 options:prevState.options.filter((option)=>optionToRemove!==option)
+             }));
+     }
+     
+   
     componentDidMount(){
         try{
             const data=localStorage.getItem("options");
@@ -34,29 +61,7 @@ export default class WishyWashy extends Component{
         }
 
     }
-    onRemoveOptions(){
-       this.setState(()=>({options:[]}))
-    }
-    onMakeDecision(){
-        const index=Math.floor(Math.random()*this.state.options.length);
-        alert(this.state.options[index]);
-    }
-    handleOption(option){
-        if(option.trim().length===0){
-            return "Enter a text"
-        }else if(this.state.options.indexOf(option)>-1){
-            return "Option already exists"
-        }
-        this.setState((prevState)=>({options:prevState.options.concat(option)}));
     
-    }
-    handleRemoveOption(optionToRemove){
-            this.setState((prevState)=>({
-                options:prevState.options.filter((option)=>optionToRemove!==option)
-            }));
-    }
-    
- 
       render(){
   
           return (
@@ -67,6 +72,8 @@ export default class WishyWashy extends Component{
                   options={this.state.options}
                   handleRemoveOption={(option)=>this.handleRemoveOption(option)}/>
                   <AddOption handleOption={this.handleOption}/>
+                  <OptionModal selectedOption={this.state.selectedOption}
+                  handleSelectedOption={this.handleClearSelectedOption}/>
               </div>
           )
       }
